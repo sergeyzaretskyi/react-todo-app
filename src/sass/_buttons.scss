@@ -1,0 +1,79 @@
+.btn {
+  height: 40px;
+  width: 200px;
+  font-size: 0.9em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  border: $primary-border;
+  border-radius: $primary-border-radius;
+  position: relative;
+  color: $color-purple-300;
+  text-decoration: none;
+  z-index: 1;
+
+  @include add-transition(color, box-shadow);
+
+  &--todo-control {
+    min-height: 30px;
+    min-width: 85px;
+    height: 30px;
+    width: 85px;
+    border-width: 1px;
+  }
+
+  &--todo-control:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: $color-purple-300;
+    z-index: -1;
+
+    @include add-transition(all);
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    box-shadow: $primary-box-shadow;
+  }
+
+  &:hover:before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+
+    @include add-transition(all);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    color: darken($color-white, 30%);
+  }
+
+  &:disabled:hover:before {
+    opacity: 0;
+  }
+
+  &:disabled:hover {
+    box-shadow: none;
+  }
+
+  &:disabled:active {
+    transform: none;
+  }
+}

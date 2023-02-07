@@ -1,0 +1,28 @@
+// Color variables
+$color-purple-900: #210b2c;
+$color-purple-700: #55286f;
+$color-purple-500: #ae759f;
+$color-purple-300: #bc96e6;
+$color-purple-100: #d8b4e2;
+
+$color-white: rgb(243, 243, 243);
+$color-black: rgb(42, 42, 42);
+
+// Margin variables
+$primary-offset: 30px;
+
+// Border variables
+$primary-border-radius: 4px;
+$primary-border: 3px solid $color-purple-300;
+
+// Shadow variables
+$primary-box-shadow: 0 0 10px rgba($color-white, 0.5),
+  0 0 5px rgba($color-white, 0.3);
+$invalid-box-shadow: 0 0 10px rgba(red, 0.5), 0 0 5px rgba(red, 0.3);
+
+// Transitions
+@mixin add-transition($elements...) {
+  transition-property: $elements;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}

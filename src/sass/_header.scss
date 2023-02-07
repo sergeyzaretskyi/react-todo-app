@@ -1,0 +1,89 @@
+.header {
+  &__logo {
+    margin-bottom: $primary-offset;
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    text-shadow: 0px 0px 15px rgba($color-purple-300, 0.9);
+  }
+
+  &__form {
+    margin-bottom: calc($primary-offset / 2);
+
+    .header-form__input {
+      margin-bottom: calc($primary-offset / 2);
+      width: 100%;
+      padding: 0 10px;
+      height: 40px;
+      border: $primary-border;
+      border-radius: $primary-border-radius;
+
+      @include add-transition(box-shadow);
+
+      &:focus {
+        box-shadow: $primary-box-shadow;
+      }
+
+      &:hover {
+        box-shadow: $primary-box-shadow;
+      }
+
+      &:focus:invalid {
+        border-color: red;
+        box-shadow: $invalid-box-shadow;
+      }
+    }
+
+    .header-form__bot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: $primary-offset;
+
+      .header-form__select,
+      .date-picker__input {
+        height: 40px;
+        padding: 0 10px;
+        border: $primary-border;
+        border-radius: $primary-border-radius;
+        cursor: pointer;
+
+        background-color: $color-purple-900;
+        color: $color-purple-100;
+
+        @include add-transition(box-shadow);
+
+        &:hover {
+          box-shadow: $primary-box-shadow;
+        }
+
+        &:focus {
+          box-shadow: $primary-box-shadow;
+        }
+      }
+
+      .header-form__date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .date-picker__input {
+          width: 175px;
+
+          &:disabled {
+            opacity: 0.3;
+            color: darken($color-white, 30%);
+          }
+
+          &:disabled:hover {
+            box-shadow: none;
+          }
+
+          &:disabled:active {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}

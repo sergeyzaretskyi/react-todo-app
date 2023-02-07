@@ -1,0 +1,30 @@
+@import './../css/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import './config';
+@import './header';
+
+:root {
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $color-purple-900;
+  color: $color-white;
+
+  .import-test-todos {
+    background-color: $color-purple-700;
+    padding: 0 5px;
+
+    @include add-transition(background-color);
+
+    &:hover {
+      background-color: $color-purple-300;
+    }
+  }
+}
+
+@import './buttons';
+@import './todos';
+@import './utilities';
+@import './checkbox';

@@ -1,0 +1,50 @@
+.checkbox {
+  position: absolute;
+  opacity: 0;
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+
+  & + label:before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: $color-purple-700;
+    border-radius: $primary-border-radius;
+
+    @include add-transition(background);
+  }
+
+  &:hover + label:before {
+    background: $color-purple-100;
+  }
+
+  &:checked + label:before {
+    background: $color-purple-700;
+  }
+
+  &:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    background: url('../assets/checkmark.svg') no-repeat center;
+    width: 16px;
+    height: 16px;
+  }
+
+  &:disabled + label:before {
+    opacity: 0.3;
+    color: darken($color-white, 30%);
+    cursor: not-allowed;
+  }
+
+  &:disabled + label:hover:before {
+    box-shadow: none;
+    background-color: $color-purple-700;
+  }
+}
