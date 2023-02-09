@@ -30,7 +30,3 @@ export const handleCancelClick = (title, todo, setTodos) => {
 export const handleCheckboxClick = (todo, setTodos) => {
   updateTodo(setTodos, todo.id, { ...todo, isDone: !todo.isDone });
 };
-
-export const handleImportClick = (fetchAPI, setTodos) => {
-  fetchAPI('./boilerplate.json').then((fetchedTodos) => setTodos(fetchedTodos));
-};
