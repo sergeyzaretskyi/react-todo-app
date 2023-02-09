@@ -5,7 +5,7 @@ const TodoCheckbox = ({ todo, setTodos }) => {
   return (
     <>
       <Input
-        className="checkbox todo__checkbox"
+        className="todo__checkbox checkbox"
         type="checkbox"
         id={todo.id}
         checked={todo.isDone}
