@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Todo, Sort, HeaderForm } from './components';
+import { Todo, HeaderForm } from './components';
 import { Container, Header, Section, List } from './components/UI';
 import { getNewDate, formatDueDate } from './utils/date';
 import { DefaultTodo } from './components/TodoUI';
@@ -51,13 +51,13 @@ const App = () => {
             setDate,
             needsDate,
             setNeedsDate,
+            todos,
+            setTodos,
           }}
         />
       </Header>
 
       <Section className="todos">
-        <Sort {...{ todos, setTodos }} />
-
         <List className="todos__list">
           {todos.length === 0 ? (
             <DefaultTodo {...{ setTodos }} />

@@ -1,13 +1,4 @@
 .todos {
-  &__sort-buttons {
-    margin-bottom: calc($primary-offset / 2);
-    text-align: right;
-
-    .btn:not(:last-child) {
-      margin-right: calc($primary-offset / 2);
-    }
-  }
-
   &__list {
     border: $primary-border;
     border-radius: $primary-border-radius;
@@ -30,64 +21,74 @@
         border-radius: $primary-border-radius;
       }
 
-      .todo__edit-input {
-        flex-grow: 1;
-
-        margin-right: 15px;
-        padding: 5px;
-        border: $primary-border;
-        border-radius: $primary-border-radius;
-        border-width: 1px;
-        background-color: $color-purple-700;
-      }
-
-      .todo__title {
-        flex-grow: 1;
-        margin-right: 15px;
-        overflow: hidden;
-      }
-
-      .todo__info {
+      .todo__content {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-        margin-right: 15px;
-        white-space: nowrap;
-        font-size: 0.8em;
-        font-weight: 700;
+        width: 100%;
 
-        .todo-info__label {
-          display: inline-block;
+        .todo__edit-input {
+          flex-grow: 1;
+
+          margin-right: 15px;
+          padding: 5px;
+          border: $primary-border;
           border-radius: $primary-border-radius;
-          width: 55px;
-          padding: 2px 5px;
+          border-width: 1px;
+          background-color: $color-purple-700;
+        }
+
+        .todo__title {
+          flex-grow: 1;
+          margin-right: 15px;
+          overflow: hidden;
+        }
+
+        .todo__info {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+          margin-right: 15px;
+          white-space: nowrap;
+          font-size: 0.8em;
           font-weight: 700;
-          text-align: center;
 
-          &--high {
-            background-color: rgb(255, 107, 107);
-            color: $color-black;
+          .todo-info__label {
+            display: inline-block;
+            border-radius: $primary-border-radius;
+            width: 55px;
+            padding: 2px 5px;
+            font-weight: 700;
+            text-align: center;
+
+            &--high {
+              background-color: rgb(255, 107, 107);
+              color: $color-black;
+            }
+
+            &--normal {
+              background-color: rgb(255, 255, 113);
+              color: $color-black;
+            }
+
+            &--low {
+              background-color: rgb(136, 255, 136);
+              color: $color-black;
+            }
+
+            &--none {
+              display: none;
+            }
           }
 
-          &--normal {
-            background-color: rgb(255, 255, 113);
-            color: $color-black;
-          }
-
-          &--low {
-            background-color: rgb(136, 255, 136);
-            color: $color-black;
-          }
-
-          &--none {
-            display: none;
+          .todo-info__date {
+            text-align: right;
           }
         }
+      }
 
-        .todo-info__date {
-          text-align: right;
-        }
+      .todo__controls {
+        display: flex;
+        gap: 15px;
       }
     }
   }

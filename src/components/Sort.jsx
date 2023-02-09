@@ -8,6 +8,8 @@ const Sort = ({ todos, setTodos }) => {
   const [dueDateSortMode, setDueDateSortMode] = useState('desc');
   const [urgencySortMode, setUrgencySortMode] = useState('desc');
 
+  const [isSortButtonToggled, setIsSortButtonToggled] = useState(false);
+
   useEffect(() => {
     setTodosToSort(todos);
   }, [todos]);
@@ -29,18 +31,79 @@ const Sort = ({ todos, setTodos }) => {
     setDueDateSortMode((prev) => (prev === 'desc' ? 'asc' : 'desc'));
   };
 
+  const handleSortButtonToggle = () => {
+    setIsSortButtonToggled(!isSortButtonToggled);
+  };
+
   return (
-    <Container className="todos__sort-buttons">
-      <Button className="btn btn--sort" onClick={handlePrioritySort}>
-        Sort by priority
-      </Button>
-      <Button className="btn btn--sort" onClick={handleUrgencySort}>
-        Sort by urgency
-      </Button>
-      <Button className="btn btn--sort" onClick={handleDueDateSort}>
-        Sort by due date
-      </Button>
-    </Container>
+    <>
+      <Container className="header-form__buttons">
+        <Button
+          type="button"
+          className="btn btn--sort"
+          onClick={handlePrioritySort}
+        >
+          Sort by priority
+        </Button>
+        <Button
+          type="button"
+          className="btn btn--sort"
+          onClick={handleUrgencySort}
+        >
+          Sort by urgency
+        </Button>
+        <Button
+          type="button"
+          className="btn btn--sort"
+          onClick={handleDueDateSort}
+        >
+          Sort by due date
+        </Button>
+      </Container>
+
+      <Container className="header-form__buttons--mobile">
+        {isSortButtonToggled ? (
+          <>
+            <Button
+              type="button"
+              className="btn btn--toggle-sort"
+              onClick={handleSortButtonToggle}
+            >
+              Sort by...
+            </Button>
+            <Button
+              type="button"
+              className="btn btn--sort"
+              onClick={handlePrioritySort}
+            >
+              Sort by priority
+            </Button>
+            <Button
+              type="button"
+              className="btn btn--sort"
+              onClick={handleUrgencySort}
+            >
+              Sort by urgency
+            </Button>
+            <Button
+              type="button"
+              className="btn btn--sort"
+              onClick={handleDueDateSort}
+            >
+              Sort by due date
+            </Button>
+          </>
+        ) : (
+          <Button
+            type="button"
+            className="btn btn--toggle-sort"
+            onClick={handleSortButtonToggle}
+          >
+            Sort by...
+          </Button>
+        )}
+      </Container>
+    </>
   );
 };
 

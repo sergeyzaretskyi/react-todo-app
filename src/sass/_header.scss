@@ -34,55 +34,72 @@
       }
     }
 
-    .header-form__bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: $primary-offset;
+    .header__container {
+      margin-bottom: calc($primary-offset / 2);
 
-      .header-form__select,
-      .date-picker__input {
-        height: 40px;
-        padding: 0 10px;
-        border: $primary-border;
-        border-radius: $primary-border-radius;
-        cursor: pointer;
-
-        background-color: $color-purple-900;
-        color: $color-purple-100;
-
-        @include add-transition(box-shadow);
-
-        &:hover {
-          box-shadow: $primary-box-shadow;
-        }
-
-        &:focus {
-          box-shadow: $primary-box-shadow;
-        }
-      }
-
-      .header-form__date {
+      .header-form__bot {
+        margin-bottom: calc($primary-offset / 2);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: $primary-offset;
 
+        .header-form__select,
         .date-picker__input {
-          width: 175px;
+          height: 40px;
+          padding: 0 10px;
+          border: $primary-border;
+          border-radius: $primary-border-radius;
+          cursor: pointer;
 
-          &:disabled {
-            opacity: 0.3;
-            color: darken($color-white, 30%);
+          background-color: $color-purple-900;
+          color: $color-purple-100;
+
+          @include add-transition(box-shadow);
+
+          &:hover {
+            box-shadow: $primary-box-shadow;
           }
 
-          &:disabled:hover {
-            box-shadow: none;
-          }
-
-          &:disabled:active {
-            transform: none;
+          &:focus {
+            box-shadow: $primary-box-shadow;
           }
         }
+
+        .header-form__date {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .date-picker__input {
+            width: 175px;
+
+            &:disabled {
+              opacity: 0.3;
+              color: darken($color-white, 30%);
+            }
+
+            &:disabled:hover {
+              box-shadow: none;
+            }
+
+            &:disabled:active {
+              transform: none;
+            }
+          }
+        }
+      }
+
+      .header-form__buttons {
+        text-align: right;
+
+        .btn:not(:last-child) {
+          margin-right: calc($primary-offset / 2);
+        }
+      }
+
+      .header-form__buttons--mobile {
+        display: none;
       }
     }
   }

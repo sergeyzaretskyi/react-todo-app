@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Sort from './Sort';
 import { Input, Button, Select, Form, Container, Label } from './UI';
 
 const HeaderForm = ({
@@ -11,6 +12,8 @@ const HeaderForm = ({
   setDate,
   needsDate,
   setNeedsDate,
+  todos,
+  setTodos,
 }) => {
   const [prevDate, setPrevDate] = useState(date);
 
@@ -33,41 +36,42 @@ const HeaderForm = ({
         required
       />
 
-      <Container className="header-form__bot">
-        <Select
-          className="header-form__select"
-          value={priorityValue}
-          onChange={(e) => setPriorityValue(e.target.value)}
-        >
-          <option value="none" disabled hidden>
-            Choose priority...
-          </option>
-          <option value="low">Low</option>
-          <option value="normal">Normal</option>
-          <option value="high">High</option>
-        </Select>
-
-        <Container className="header-form__date">
-          <Input
-            className="checkbox date-checkbox"
-            type="checkbox"
-            id="date-picker"
-            checked={needsDate}
-            onChange={handleDateCheckbox}
-          />
-          <Label className="date-picker__label" htmlFor="date-picker"></Label>
-          <Input
-            type="date"
-            className="date-picker__input"
-            value={date}
-            disabled={!needsDate}
-            onChange={(e) => setDate(e.target.value)}
-          />
+      <Container className="header__container">
+        <Container className="header-form__bot">
+          <Select
+            className="header-form__select"
+            value={priorityValue}
+            onChange={(e) => setPriorityValue(e.target.value)}
+          >
+            <option value="none" disabled hidden>
+              Choose priority...
+            </option>
+            <option value="low">Low</option>
+            <option value="normal">Normal</option>
+            <option value="high">High</option>
+          </Select>
+          <Container className="header-form__date">
+            <Input
+              className="checkbox date-checkbox"
+              type="checkbox"
+              id="date-picker"
+              checked={needsDate}
+              onChange={handleDateCheckbox}
+            />
+            <Label className="date-picker__label" htmlFor="date-picker"></Label>
+            <Input
+              type="date"
+              className="date-picker__input"
+              value={date}
+              disabled={!needsDate}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </Container>
+          <Button className="btn btn--submit" type="submit">
+            Add todo
+          </Button>
         </Container>
-
-        <Button className="btn btn--submit" type="submit">
-          Add todo
-        </Button>
+        <Sort {...{ todos, setTodos }} />
       </Container>
     </Form>
   );

@@ -1,0 +1,124 @@
+@media (max-width: 805px) {
+  .todos {
+    &__list {
+      .todos__item {
+        // flex-direction: column;
+
+        .todo__info {
+          flex-direction: column;
+          gap: 5px !important;
+          min-width: 80px;
+        }
+
+        .todo__controls {
+          flex-direction: column;
+          gap: 5px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 659.9px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .header {
+    &__form {
+      .header__container {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+
+        .header-form__bot {
+          flex-direction: column;
+          gap: 10px;
+          justify-content: center;
+          align-items: flex-start;
+          margin-bottom: 0;
+        }
+
+        .header-form__buttons {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 10px;
+
+          .btn:not(:last-child) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .todos {
+    &__list {
+      .todos__item {
+        .todo__content {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+
+          .todo__edit-input {
+            width: calc(100% - 15px);
+          }
+
+          .todo__info {
+            flex-direction: row;
+            justify-content: flex-start !important;
+            gap: 10px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 464px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .header {
+    &__logo {
+      font-size: 1.8rem;
+    }
+
+    &__form {
+      .header__container {
+        flex-direction: column;
+
+        .header-form__buttons {
+          display: none !important;
+        }
+
+        .header-form__buttons--mobile {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .header-form__bot {
+          .header-form__select,
+          .date-picker__input {
+            height: 30px;
+            width: 100%;
+          }
+
+          .header-form__date {
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+
+  .btn {
+    height: 30px !important;
+    width: 100% !important;
+    font-size: 0.7em !important;
+  }
+}

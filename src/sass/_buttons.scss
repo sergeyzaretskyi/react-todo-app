@@ -24,10 +24,6 @@
     border-width: 1px;
   }
 
-  &--todo-control:not(:last-child) {
-    margin-right: 15px;
-  }
-
   &:before {
     position: absolute;
     top: 0;
